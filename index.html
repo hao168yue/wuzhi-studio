@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WUZHI STUDIO · 以园林美学手法，建构诗意空间</title>
+<meta name="description" content="WUZHI STUDIO，以园林手法建构空间美学的创意设计工作室。让空间呼吸，让人待得住。">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<style>
+  :root{
+    --bg:#fbfaf8;
+    --bg-soft:#f1efea;
+    --ink:#1a1a1a;
+    --ink-soft:#8a857d;
+    --line:#e3e0d9;
+    --maxw:1320px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --serif:var(--sans);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:17px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+  .label{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-size:13px;letter-spacing:.36em;font-weight:600}
+  .brand .mk{width:30px;height:30px;display:block;flex:0 0 auto;object-fit:contain}
+  .brand span{color:var(--ink-soft);font-weight:400}
+  .menu{display:flex;gap:46px;list-style:none}
+  .menu a{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);transition:color .25s}
+  .menu a:hover{color:var(--ink)}
+  .burger{display:none;background:none;border:0;font-size:20px;cursor:pointer}
+
+  /* Hero */
+  .hero{padding:130px 0 110px}
+  .hero .label{margin-bottom:40px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(36px,5vw,72px);line-height:1.08;letter-spacing:-.015em}
+  .hero .sub{margin-top:42px;max-width:680px}
+  .hero .sub p{font-size:clamp(17px,1.6vw,21px);color:#4a463f;line-height:1.5;letter-spacing:-.012em}
+  .hero .sub .poem{margin-top:26px;font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.2vw,28px);color:var(--ink);letter-spacing:-.01em;line-height:1.4}
+  .hero-actions{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:15px 34px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;border:1px solid var(--ink);transition:.25s}
+  .btn-dark{background:var(--ink);color:var(--bg)}
+  .btn-dark:hover{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+  /* Section frame */
+  section{padding:104px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:60px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,48px);letter-spacing:-.015em}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start}
+  .about-grid p{font-size:19px;color:#403c35;margin-bottom:22px;line-height:1.6;letter-spacing:-.012em}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:34px;border-top:1px solid var(--line);padding-top:34px}
+  .stat b{display:block;font-family:var(--serif);font-size:46px;font-weight:600;letter-spacing:-.02em}
+  .stat span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* Work — aligned gallery */
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .tile{position:relative;overflow:hidden;display:block;background:var(--bg-soft);aspect-ratio:1/1}
+  .tile .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:clamp(48px,7vw,120px);color:rgba(255,255,255,.92);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .tile img.ph{object-fit:cover}
+  .tile.soon{cursor:default;background:linear-gradient(150deg,#eae7e1,#dbd7cf);border:1px solid var(--line)}
+  .soonbox{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-soft)}
+  .soonbox .plus{font-size:clamp(30px,4vw,52px);font-weight:200;line-height:1}
+  .soonbox h3{font-size:16px;font-weight:500;letter-spacing:.02em}
+  .soonbox span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.75}
+  .tile:hover .ph{transform:scale(1.05)}
+  .t1{background:linear-gradient(150deg,#23211d,#55504a)}
+  .t2{background:linear-gradient(150deg,#5b6b58,#9aa890)}
+  .t3{background:linear-gradient(150deg,#2f3a42,#6f7d86)}
+  .t4{background:linear-gradient(150deg,#7a5a44,#bd9a78)}
+  .tile .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);opacity:0;transform:translateY(8px);transition:.4s}
+  .tile:hover .cap{opacity:1;transform:none}
+  .tile .cap h3{font-size:19px;font-weight:500;letter-spacing:.02em}
+  .tile .cap span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+
+  /* Big wordmark divider */
+  .mark{padding:90px 0;text-align:center;border-top:1px solid var(--line)}
+  .mark .label{margin-bottom:24px}
+  .mark .big{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.6vw,68px);line-height:1;letter-spacing:-.01em;color:var(--ink)}
+  .mark .big em{font-style:normal;color:var(--ink-soft)}
+  .mark .logobig{width:clamp(96px,11vw,140px);height:auto;margin:0 auto;display:block}
+  .mark .lockname{margin-top:26px;font-size:clamp(13px,1.5vw,16px);letter-spacing:.26em;color:var(--ink-soft)}
+
+  /* Services — editorial rows */
+  .svc-list{border-top:1px solid var(--ink)}
+  .svc-row{display:grid;grid-template-columns:60px 1fr 1.4fr auto;gap:32px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);transition:padding-left .35s}
+  .svc-row:hover{padding-left:14px}
+  .svc-row .no{font-size:12px;letter-spacing:.2em;color:var(--ink-soft)}
+  .svc-row h3{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-.015em}
+  .svc-row .desc{font-size:14px;color:#56524b;line-height:1.7}
+  .svc-row .price{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+  .svc-note{margin-top:26px;font-size:13px;color:var(--ink-soft)}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .contact-info h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,5vw,56px);letter-spacing:-.02em;line-height:1.08}
+  .contact-info .lead{margin-top:26px;font-size:19px;color:#4a463f;max-width:36ch;line-height:1.5;letter-spacing:-.012em}
+  .contact-list{margin-top:40px}
+  .contact-list div{padding:16px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+  .contact-list span:first-child,.contact-list .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+  .contact-list a,.contact-list .v{font-size:16px}
+  .qr{margin-top:40px}
+  .qr img{width:152px;height:152px;border:1px solid var(--line);padding:9px;background:#fff}
+  .qr-ph{width:152px;height:152px;border:1px dashed var(--line);align-items:center;justify-content:center;text-align:center;font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .qr-cap{margin-top:14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+  form{display:grid;gap:20px}
+  .field label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+  .field input,.field textarea,.field select{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);font:inherit;font-size:16px;background:transparent;transition:border-color .25s}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--ink)}
+  .field textarea{min-height:96px;resize:vertical}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  form button{margin-top:8px;justify-self:start;padding:15px 40px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;transition:.25s}
+  form button:hover{background:transparent;color:var(--ink)}
+  .form-note{font-size:13px;color:var(--ink-soft)}
+
+  footer{border-top:1px solid var(--line);padding:56px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px}
+  .foot .brand{font-size:13px}
+  .foot .menu a{font-size:10px}
+  .foot .cr{font-size:11px;letter-spacing:.16em;color:var(--ink-soft)}
+
+  @media(max-width:900px){
+    .wrap{padding:0 24px}
+    .menu{display:none}
+    .burger{display:block}
+    .menu.open{display:flex;position:absolute;top:78px;left:0;right:0;background:var(--bg);flex-direction:column;padding:26px 24px;gap:22px;border-bottom:1px solid var(--line)}
+    .hero{padding:84px 0 76px}
+    .hero .sub{grid-template-columns:1fr;gap:30px}
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    section{padding:74px 0}
+    .work-grid{grid-template-columns:1fr;gap:18px}
+    .svc-row{grid-template-columns:40px 1fr;gap:10px 18px}
+    .svc-row .desc,.svc-row .price{grid-column:2}
+  }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top"><img class="mk" src="assets/logo-mark.png" alt="WUZHI">WUZHI <span>STUDIO</span></a>
+      <ul class="menu" id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="菜单">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="label">Garden · Space · Aesthetics</div>
+      <h1>以园林美学手法<br>建构诗意空间</h1>
+      <div class="sub">
+        <p>WUZHI STUDIO 借中国园林的造境之法——借景、框景、移步换景，重新组织空间的节奏与呼吸，让每一处场所都成为可被身体感知的风景。</p>
+        <div class="poem">让空间呼吸，让人待得住。</div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#contact">开始一个项目</a>
+        <a class="btn btn-ghost" href="#work">查看作品</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head"><h2>精选作品</h2><span class="label">Selected Work</span></div>
+      <div class="work-grid">
+        <a class="tile" href="projects/yinting.html"><img class="ph" src="projects/yinting/01.jpg" alt="隐庭 · 私人会所" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>隐庭 · 私人会所</h3><span>Private Club / 2025</span></div></a>
+        <a class="tile" href="projects/diecui.html"><img class="ph" src="projects/diecui/01.jpg" alt="叠翠 · 茶空间" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>叠翠 · 茶空间</h3><span>Tea Space / 2025</span></div></a>
+        <a class="tile" href="projects/yingbi.html"><img class="ph" src="projects/yingbi/01.jpg" alt="影壁 · 艺术展厅" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>影壁 · 艺术展厅</h3><span>Gallery / 2024</span></div></a>
+        <a class="tile" href="projects/shuying.html"><img class="ph" src="projects/shuying/01.jpg" alt="疏影 · 民宿庭园" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>疏影 · 民宿庭园</h3><span>Retreat / 2024</span></div></a>
+        <a class="tile" href="projects/guanshan.html"><img class="ph" src="projects/guanshan/01.jpg" alt="观山 · 云端寓所" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>观山 · 云端寓所</h3><span>Residence / 2025</span></div></a>
+        <a class="tile" href="projects/yuanxiu.html"><img class="ph" src="projects/yuanxiu/01.jpg" alt="远岫 · 山景寓所" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>远岫 · 山景寓所</h3><span>Living / 2025</span></div></a>
+        <a class="tile" href="projects/qiguang.html"><img class="ph" src="projects/qiguang/01.jpg" alt="栖光 · 都会寓所" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>栖光 · 都会寓所</h3><span>Apartment / 2025</span></div></a>
+        <a class="tile" href="projects/lanyue.html"><img class="ph" src="projects/lanyue/01.jpg" alt="揽月 · 观景寓所" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>揽月 · 观景寓所</h3><span>Sky Residence / 2025</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORDMARK -->
+  <div class="mark">
+    <div class="wrap">
+      <div class="label" style="margin-bottom:34px">无咫 · 造境</div>
+      <img class="logobig" src="assets/logo-mark.png" alt="WUZHI STUDIO">
+      <div class="lockname">无咫工作室 · WUZHI STUDIO</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>关于我们</h2><span class="label">About</span></div>
+      <div class="about-grid">
+        <div>
+          <p>WUZHI STUDIO 的核心理念，是以园林手法建构空间美学。我们把传统园林的造境智慧——疏密、虚实、藏露、曲折，转译为当代空间的语言。</p>
+          <p>设计于我们，不是填满，而是经营留白；不是陈列，而是引导观看。从一处庭院到一间空间，我们让光、影、动线与材质彼此呼应，使人在行走之间，遇见层层展开的风景。</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>10+</b><span>年设计经验</span></div>
+          <div class="stat"><b>120+</b><span>完成项目</span></div>
+          <div class="stat"><b>40+</b><span>合作品牌</span></div>
+          <div class="stat"><b>3</b><span>核心成员</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head"><h2>服务</h2><span class="label">Services</span></div>
+      <div class="svc-list">
+        <div class="svc-row"><div class="no">01</div><h3>空间设计</h3>
+          <div class="desc">空间概念与造境 · 动线与场所营造 · 材质与光影规划 · 方案深化</div>
+          <div class="price">面议 / Inquiry</div></div>
+        <div class="svc-row"><div class="no">02</div><h3>园林 · 景观</h3>
+          <div class="desc">庭院与园林设计 · 借景框景布局 · 植栽与置石 · 施工配合</div>
+          <div class="price">面议 / Inquiry</div></div>
+        <div class="svc-row"><div class="no">03</div><h3>美学顾问</h3>
+          <div class="desc">空间美学策略 · 软装与陈设 · 品牌空间叙事 · 落地把控</div>
+          <div class="price">面议 / Inquiry</div></div>
+      </div>
+      <p class="svc-note">* 每个项目皆为定制，报价依场地条件与设计范围而定，欢迎来信详谈。</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>聊聊你的项目</h2>
+          <p class="lead">无论想法处在哪个阶段，欢迎告诉我们。通常我们会在 1 个工作日内回复。</p>
+          <div class="contact-list">
+            <div><span class="k">手机 / 微信</span><a href="tel:15088996089">150 8899 6089</a></div>
+            <div><span class="k">所在地</span><span class="v">中国 · 温州</span></div>
+          </div>
+          <div class="qr">
+            <img src="wechat-qr.png" alt="微信二维码" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="qr-ph" style="display:none">微信二维码<br><small>放入 wechat-qr.png</small></div>
+            <p class="qr-cap">扫码加微信 · WeChat</p>
+          </div>
+        </div>
+        <form id="contactForm">
+          <div class="row2">
+            <div class="field"><label>姓名 / Name</label><input required name="name" placeholder="你的称呼"></div>
+            <div class="field"><label>邮箱 / Email</label><input required type="email" name="email" placeholder="you@email.com"></div>
+          </div>
+          <div class="field"><label>感兴趣的服务 / Service</label>
+            <select name="service"><option>空间设计</option><option>园林 · 景观</option><option>美学顾问</option><option>其他</option></select>
+          </div>
+          <div class="field"><label>项目简述 / Project</label><textarea required name="message" placeholder="简单介绍一下你的需求、时间和预算……"></textarea></div>
+          <button type="submit">发送预约咨询</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><img class="mk" src="assets/logo-mark.png" alt="WUZHI">WUZHI <span>STUDIO</span></div>
+    <ul class="menu" style="display:flex">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="cr">© <span id="year"></span> WUZHI STUDIO · 温州</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');});});
+  document.getElementById('contactForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('formNote').textContent='✓ 已收到！我们会尽快与你联系。（上线后请接入真实表单服务）';
+    this.reset();
+  });
+</script>
+</body>
+</html>
