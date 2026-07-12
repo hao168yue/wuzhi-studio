@@ -1,0 +1,6 @@
+<!-- 将以下两段粘贴到 index.html 的 <div class="work-grid"> 内(建议放在 lanyue 卡片之后) -->
+
+        <a class="tile" href="projects/yunqi.html"><img class="ph" src="projects/yunqi/01.jpg" alt="云栖 · 度假别墅" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>云栖 · 度假别墅</h3><span>Villa Retreat / 2026</span></div></a>
+        <a class="tile" href="projects/tingyu.html"><img class="ph" src="projects/tingyu/01.jpg" alt="听雨 · 庭院书房" loading="lazy" style="object-position:center 50%">
+          <div class="cap"><h3>听雨 · 庭院书房</h3><span>Courtyard Study / 2026</span></div></a>
